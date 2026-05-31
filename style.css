@@ -174,7 +174,7 @@ nav.scrolled {
   text-align: center;
   position: relative;
   padding: 0 20px;
-  background: var(--bg);
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/Hero/A7_03165.jpg') center center / cover no-repeat;
 }
 
 .hero-content {
