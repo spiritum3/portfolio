@@ -174,12 +174,49 @@ nav.scrolled {
   text-align: center;
   position: relative;
   padding: 0 20px;
-  background: linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.72)), url('images/Hero/A7_03165.jpg') center center / cover no-repeat;
+  background: url('images/Hero/A7_03165.jpg') center center / cover no-repeat;
+  overflow: hidden;
+}
+
+/* dark overlay */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.52);
+  z-index: 1;
+}
+
+/* vignette */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.7) 100%);
+  z-index: 2;
+}
+
+/* film grain */
+#hero .hero-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  opacity: 0.06;
+  z-index: 3;
+  pointer-events: none;
 }
 
 .hero-content {
   position: relative;
-  z-index: 1;
+  z-index: 4;
+  /* glass card */
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 2px;
+  padding: 40px 56px;
 }
 
 .hero-scroll {
@@ -215,6 +252,7 @@ nav.scrolled {
   text-transform: uppercase;
   color: var(--accent);
   animation: fadeIn 1s ease 0.3s both;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
 }
 
 .hero-content h1 {
@@ -225,6 +263,7 @@ nav.scrolled {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   animation: fadeIn 1s ease 0.5s both;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.6), 0 0 2px rgba(0,0,0,0.9);
 }
 
 .hero-first {
