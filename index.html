@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nikolaos Katsaros — Photographer & Filmmaker</title>
+  <meta name="description" content="Portfolio of Nikolaos Katsaros, Photographer and Filmmaker based in Paris. Portrait, editorial, social media content, e-commerce and event photography.">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;1,100;1,200&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-name">Nikolaos Katsaros</a>
+    <div class="nav-links">
+      <a href="#work"         data-i18n="nav.work">Work</a>
+      <a href="#case-studies" data-i18n="nav.selected">Selected</a>
+      <a href="#about"        data-i18n="nav.about">About</a>
+      <a href="#contact"      data-i18n="nav.contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="fr">FR</button>
+      </div>
+      <button class="nav-burger" id="nav-burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <p class="hero-roles" data-i18n="hero.roles">Photographer &nbsp;·&nbsp; Filmmaker &nbsp;·&nbsp; Visual Artist</p>
+      <h1><span class="hero-first">Nikolaos</span> <em class="hero-last">Katsaros</em></h1>
+      <p class="hero-location" data-i18n="hero.location">Paris &nbsp;·&nbsp; Available Worldwide</p>
+    </div>
+    <div class="hero-scroll">↓</div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="filters">
+      <button class="filter-btn" data-filter="all"     data-i18n="filter.all">All</button>
+      <button class="filter-btn" data-filter="product" data-i18n="filter.product">Product &amp; Jewelry</button>
+      <button class="filter-btn active" data-filter="portrait" data-i18n="filter.portrait">Portrait</button>
+      <button class="filter-btn" data-filter="couples" data-i18n="filter.couples">Couples</button>
+      <button class="filter-btn" data-filter="events"  data-i18n="filter.events">Events</button>
+      <button class="filter-btn" data-filter="video"   data-i18n="filter.video">Video</button>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- CASE STUDIES -->
+  <section id="case-studies">
+    <div class="cs-inner">
+      <span class="section-label" data-i18n="cs.label">Selected Work</span>
+
+      <div class="cs-item">
+        <div class="cs-images">
+          <img src="images/portrait/IMG_9228.jpg" alt="Social Media Content">
+          <img src="images/portrait/IMG_9226.jpg" alt="Social Media Content">
+        </div>
+        <div class="cs-text">
+          <span class="cs-num">01</span>
+          <h3 data-i18n="cs.1.title">Social Media<br>&amp; Content</h3>
+          <p data-i18n="cs.1.desc">Photography and video production tailored for social platforms — from single-image posts to full reels and campaign content. Visual storytelling built around brand identity, aesthetic consistency and engagement.</p>
+          <a href="#work" class="cs-link" data-i18n="cs.link">View Work</a>
+        </div>
+      </div>
+
+      <div class="cs-item cs-item--reverse">
+        <div class="cs-images">
+          <img src="images/couples/A7V09938.jpg" alt="Couples">
+          <img src="images/events/DSC05335.jpg" alt="Events">
+        </div>
+        <div class="cs-text">
+          <span class="cs-num">02</span>
+          <h3 data-i18n="cs.2.title">Events<br>&amp; Conferences</h3>
+          <p data-i18n="cs.2.desc">Documentary and editorial coverage of intimate moments — couples sessions, private events and gatherings. A quiet, unposed approach that captures atmosphere and genuine emotion.</p>
+          <a href="#work" class="cs-link" data-i18n="cs.link">View Work</a>
+        </div>
+      </div>
+
+      <div class="cs-item">
+        <div class="cs-images cs-images--single">
+          <img src="images/portrait/A7V06303.jpg" alt="E-Commerce">
+        </div>
+        <div class="cs-text">
+          <span class="cs-num">03</span>
+          <h3 data-i18n="cs.3.title">E-Commerce<br>&amp; Product</h3>
+          <p data-i18n="cs.3.desc">Clean, precise product photography for e-commerce catalogues, brand lookbooks and online retail. From packshots to styled lifestyle imagery — always delivered ready for web and print.</p>
+          <a href="#work" class="cs-link" data-i18n="cs.link">View Work</a>
+        </div>
+      </div>
+
+      <div class="cs-item cs-item--reverse">
+        <div class="cs-images">
+          <img src="images/couples/A7V00014.jpg" alt="Couples">
+          <img src="images/portrait/A7V06303.jpg" alt="Portrait">
+        </div>
+        <div class="cs-text">
+          <span class="cs-num">04</span>
+          <h3 data-i18n="cs.4.title">Couples<br>&amp; Portraits</h3>
+          <p data-i18n="cs.4.desc">Intimate couple sessions and personal portraits — natural light, genuine connection and a quiet editorial eye. Every frame built around the person, not the pose.</p>
+          <a href="#work" class="cs-link" data-i18n="cs.link">View Work</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lb-close">✕</button>
+    <button class="lb-prev" id="lb-prev">‹</button>
+    <button class="lb-next" id="lb-next">›</button>
+    <div class="lb-img-wrap">
+      <img src="" alt="" id="lb-img">
+    </div>
+    <p class="lb-caption" id="lb-caption"></p>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <span class="section-label" data-i18n="about.label">About</span>
+        <p data-i18n="about.p1">Photographer and filmmaker with 5+ years of professional experience, based between Greece and Paris. My work spans portrait, lifestyle, editorial, e-commerce product photography, event coverage and commercial video — always with a cinematic, considered approach to light and atmosphere.</p>
+        <p data-i18n="about.p2">I collaborate with brands, agencies and individuals across social media content, catalogue shoots, corporate film and personal projects. Comfortable with the full pipeline from shoot to final delivery — Lightroom, Photoshop, DaVinci Resolve.</p>
+        <a href="mailto:spiritumcaritatis@gmail.com" class="btn" data-i18n="about.btn">Get in touch</a>
+      </div>
+      <div class="about-img-wrap">
+        <img src="images/About/1758438995429.jpeg" alt="Nikolaos Katsaros">
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2 data-i18n="contact.label">Contact</h2>
+    <p class="contact-heading" data-i18n="contact.heading">Let's create together.</p>
+    <p class="contact-sub" data-i18n="contact.sub">If you care about the quality of your visual presence — a brand, an agency, or a project that deserves to be seen properly — I'd like to hear from you.</p>
+    <div class="contact-actions">
+      <a href="mailto:spiritumcaritatis@gmail.com" class="contact-action-btn" data-i18n="contact.email">Send an Email</a>
+      <div class="cv-dropdown">
+        <button class="contact-action-btn" id="cv-btn" data-i18n="contact.cv">Download CV</button>
+        <div class="cv-dropdown-menu" id="cv-menu">
+          <a href="Katsaros_CV_EN.pdf" download>English</a>
+          <a href="Katsaros_CV_FR.pdf" download>Français</a>
+        </div>
+      </div>
+    </div>
+    <div class="contact-meta">
+      <span>spiritumcaritatis@gmail.com</span>
+      <span class="contact-meta-dot">·</span>
+      <span>Paris, France</span>
+      <span class="contact-meta-dot">·</span>
+      <span data-i18n="contact.remote">Remote-friendly</span>
+      <span class="contact-meta-dot">·</span>
+      <a href="https://www.linkedin.com/in/nikos-katsaros-8767361b6/" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Nikolaos Katsaros</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
