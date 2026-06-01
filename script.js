@@ -368,27 +368,18 @@ document.querySelectorAll('.service-item').forEach((el, i) => {
   serviceObserver.observe(el);
 });
 
-// ── FILM COVERFLOW ──
+// ── FILM FADE CAROUSEL ──
 const cfItems = Array.from(document.querySelectorAll('.film-cf-item'));
+const cfCurEl = document.querySelector('.film-cf-cur');
 let cfIndex = 0;
 
-function cfUpdate() {
-  const total = cfItems.length;
-  cfItems.forEach((item, i) => {
-    item.classList.remove('cf-center', 'cf-side', 'cf-far');
-    const diff = ((i - cfIndex) % total + total) % total;
-    const mirror = total - diff;
-    const dist = Math.min(diff, mirror);
-    if (dist === 0) item.classList.add('cf-center');
-    else if (dist === 1) item.classList.add('cf-side');
-    else item.classList.add('cf-far');
-  });
+function cfUpdate(next) {
+  cfItems[cfIndex].classList.remove('cf-center');
+  cfIndex = (next + cfItems.length) % cfItems.length;
+  cfItems[cfIndex].classList.add('cf-center');
+  if (cfCurEl) cfCurEl.textContent = String(cfIndex + 1).padStart(2, '0');
 }
 
 if (cfItems.length) {
-  cfUpdate();
-  setInterval(() => {
-    cfIndex = (cfIndex + 1) % cfItems.length;
-    cfUpdate();
-  }, 3000);
+  setInterval(() => cfUpdate(cfIndex + 1), 3500);
 }
