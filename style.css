@@ -749,7 +749,8 @@ nav.scrolled {
   font-weight: 300;
   margin-bottom: 40px;
   letter-spacing: 0.03em;
-  line-height: 1.9;
+  line-height: 2.2;
+  text-align: center;
 }
 
 .contact-actions {
