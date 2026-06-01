@@ -525,56 +525,6 @@ nav.scrolled {
   .services-inner { padding: 0 32px; }
 }
 
-/* ── FILM CAROUSEL ── */
-#film {
-  padding: 100px 0 0;
-  border-top: 1px solid var(--border);
-  overflow: hidden;
-}
-
-.film-header {
-  max-width: 1100px;
-  margin: 0 auto 48px;
-  padding: 0 64px;
-}
-
-.film-coverflow {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 64px;
-  position: relative;
-}
-
-.film-cf-track {
-  width: 100%;
-  aspect-ratio: 4/5;
-  max-height: 70vh;
-  overflow: hidden;
-}
-
-.film-cf-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.6s ease;
-}
-
-/* counter */
-.film-cf-counter {
-  text-align: right;
-  margin-top: 14px;
-  font-family: var(--font-sans);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--muted);
-}
-
-@media (max-width: 700px) {
-  .film-coverflow { padding: 0 24px; }
-  .film-header { padding: 0 32px; }
-}
-
 /* ── LIGHTBOX ── */
 .lightbox {
   display: none;
