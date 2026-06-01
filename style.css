@@ -523,15 +523,26 @@ nav.scrolled {
 .carousel-track-wrap {
   width: 100%;
   overflow: hidden;
-  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .carousel-track {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   width: max-content;
-  animation: carousel-scroll 55s linear infinite;
+  flex-shrink: 0;
+}
+
+.carousel-track--left {
+  animation: carousel-left 55s linear infinite;
+}
+
+.carousel-track--right {
+  animation: carousel-right 55s linear infinite;
 }
 
 .carousel-track:hover {
@@ -539,26 +550,34 @@ nav.scrolled {
 }
 
 .carousel-track img {
-  height: 480px;
+  height: 240px;
   width: auto;
   object-fit: cover;
   display: block;
-  filter: grayscale(10%);
-  transition: filter 0.4s, transform 0.4s;
+  filter: grayscale(20%) brightness(0.85);
+  transition: filter 0.5s, transform 0.5s;
+  cursor: pointer;
 }
 
 .carousel-track img:hover {
-  filter: grayscale(0%);
-  transform: scale(1.02);
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.03);
+  z-index: 1;
+  position: relative;
 }
 
-@keyframes carousel-scroll {
+@keyframes carousel-left {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
+@keyframes carousel-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
 @media (max-width: 700px) {
-  .carousel-track img { height: 280px; }
+  .carousel-track img { height: 160px; }
   .film-header { padding: 0 32px; }
 }
 
