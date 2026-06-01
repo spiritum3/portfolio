@@ -523,13 +523,15 @@ nav.scrolled {
 .carousel-track-wrap {
   width: 100%;
   overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
 }
 
 .carousel-track {
   display: flex;
   gap: 12px;
   width: max-content;
-  animation: carousel-scroll 30s linear infinite;
+  animation: carousel-scroll 55s linear infinite;
 }
 
 .carousel-track:hover {
