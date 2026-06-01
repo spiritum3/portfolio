@@ -327,22 +327,24 @@ nav.scrolled {
 
 .filter-btn {
   background: none;
-  border: 1px solid var(--border);
+  border: none;
+  border-bottom: 1px solid transparent;
   color: var(--muted);
   font-family: var(--font-sans);
   font-size: 10px;
   font-weight: 300;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  padding: 8px 18px;
+  padding: 4px 0;
+  margin-right: 28px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-  border-color: var(--accent);
-  color: var(--accent);
+  color: var(--text);
+  border-bottom-color: var(--accent);
 }
 
 /* ── GRID (Scroll storytelling) ── */
@@ -687,11 +689,11 @@ nav.scrolled {
 .about-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 48px;
+  padding: 0 64px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 100px;
+  align-items: start;
 }
 
 @media (max-width: 700px) {
@@ -701,11 +703,17 @@ nav.scrolled {
 .about-text .section-label { margin-bottom: 32px; }
 
 .about-text p {
-  color: #999;
-  margin-bottom: 16px;
-  font-size: 14px;
+  color: #888;
+  margin-bottom: 22px;
+  font-size: 15px;
   font-weight: 300;
-  line-height: 1.9;
+  line-height: 2;
+}
+
+.about-text p:first-of-type {
+  font-size: 17px;
+  color: #bbb;
+  line-height: 1.85;
 }
 
 .btn {
@@ -727,15 +735,22 @@ nav.scrolled {
   color: var(--accent);
 }
 
+.about-img-wrap {
+  position: sticky;
+  top: 100px;
+}
+
 .about-img-wrap img {
   width: 100%;
   display: block;
-  filter: grayscale(20%);
+  filter: grayscale(15%);
+  aspect-ratio: 3/4;
+  object-fit: cover;
 }
 
 /* ── CONTACT ── */
 #contact {
-  padding: 120px 48px;
+  padding: 140px 48px;
   text-align: center;
   border-top: 1px solid var(--border);
 }
@@ -746,17 +761,17 @@ nav.scrolled {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--accent);
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .contact-heading {
   font-family: var(--font-serif);
-  font-size: clamp(22px, 3vw, 36px);
-  font-weight: 300;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 200;
   letter-spacing: 0.04em;
   color: var(--text);
-  line-height: 1.3;
-  margin-bottom: 20px;
+  line-height: 1.15;
+  margin-bottom: 28px;
 }
 
 .contact-sub {
