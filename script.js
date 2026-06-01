@@ -369,17 +369,28 @@ document.querySelectorAll('.service-item').forEach((el, i) => {
 });
 
 // ── FILM FADE CAROUSEL ──
-const cfItems = Array.from(document.querySelectorAll('.film-cf-item'));
+const cfImg = document.querySelector('.film-cf-img');
 const cfCurEl = document.querySelector('.film-cf-cur');
+const cfSrcs = [
+  'images/frames/Untitled-1921.jpg',
+  'images/frames/Untitled-1922.jpg',
+  'images/frames/Untitled-1923.jpg',
+  'images/frames/Untitled-1924.jpg',
+  'images/frames/Untitled-1925.jpg',
+  'images/frames/Untitled-1926.jpg',
+  'images/frames/Untitled-1927.jpg',
+  'images/frames/Untitled-1928.jpg',
+];
 let cfIndex = 0;
 
-function cfUpdate(next) {
-  cfItems[cfIndex].classList.remove('cf-center');
-  cfIndex = (next + cfItems.length) % cfItems.length;
-  cfItems[cfIndex].classList.add('cf-center');
-  if (cfCurEl) cfCurEl.textContent = String(cfIndex + 1).padStart(2, '0');
-}
-
-if (cfItems.length) {
-  setInterval(() => cfUpdate(cfIndex + 1), 3500);
+if (cfImg) {
+  setInterval(() => {
+    cfImg.style.opacity = '0';
+    setTimeout(() => {
+      cfIndex = (cfIndex + 1) % cfSrcs.length;
+      cfImg.src = cfSrcs[cfIndex];
+      cfImg.style.opacity = '1';
+      if (cfCurEl) cfCurEl.textContent = String(cfIndex + 1).padStart(2, '0');
+    }, 600);
+  }, 3500);
 }
