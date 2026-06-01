@@ -550,7 +550,7 @@ nav.scrolled {
 }
 
 .carousel-track img {
-  height: 240px;
+  height: 360px;
   width: auto;
   object-fit: cover;
   display: block;
