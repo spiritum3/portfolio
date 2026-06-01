@@ -367,3 +367,21 @@ document.querySelectorAll('.service-item').forEach((el, i) => {
   el.style.transitionDelay = `${i * 0.1}s`;
   serviceObserver.observe(el);
 });
+
+// ── FILM SLIDESHOW ──
+const slides = document.querySelectorAll('.slide');
+const currentEl = document.querySelector('.slide-current');
+let current = 0;
+
+function goTo(n) {
+  slides[current].classList.remove('active');
+  current = (n + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  if (currentEl) currentEl.textContent = current + 1;
+}
+
+document.querySelector('.slide-prev')?.addEventListener('click', () => goTo(current - 1));
+document.querySelector('.slide-next')?.addEventListener('click', () => goTo(current + 1));
+
+// auto-advance every 4s
+setInterval(() => goTo(current + 1), 4000);
