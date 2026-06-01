@@ -438,118 +438,126 @@ nav.scrolled {
 }
 
 /* ── CASE STUDIES ── */
-#case-studies {
+/* ── WHAT I DO ── */
+#services {
   padding: 120px 0;
   border-top: 1px solid var(--border);
 }
 
-.cs-inner {
+.services-inner {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 64px;
 }
 
-.cs-inner > .section-label {
-  margin-bottom: 80px;
+.services-inner > .section-label {
+  margin-bottom: 72px;
 }
 
-.cs-item {
+.services-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-  margin-bottom: 120px;
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
 }
 
-.cs-item.visible {
+.service-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.service-item.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.cs-item:last-child { margin-bottom: 0; }
-
-.cs-item--reverse .cs-images { order: 2; }
-.cs-item--reverse .cs-text   { order: 1; }
-
-.cs-images {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.cs-images--single {
-  grid-template-columns: 1fr;
-}
-
-.cs-images img {
-  width: 100%;
+.service-num {
   display: block;
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 200;
+  color: var(--border);
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.service-item h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.service-item p {
+  color: #777;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+@media (max-width: 860px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 500px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .services-inner { padding: 0 32px; }
+}
+
+/* ── FILM CAROUSEL ── */
+#film {
+  padding: 100px 0 0;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.film-header {
+  max-width: 1100px;
+  margin: 0 auto 48px;
+  padding: 0 64px;
+}
+
+.carousel-track-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: carousel-scroll 30s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+.carousel-track img {
+  height: 480px;
+  width: auto;
   object-fit: cover;
-  aspect-ratio: 2/3;
-  filter: grayscale(15%);
-  transition: filter 0.4s, transform 0.5s;
+  display: block;
+  filter: grayscale(10%);
+  transition: filter 0.4s, transform 0.4s;
 }
 
-.cs-images--single img {
-  aspect-ratio: 3/4;
-}
-
-.cs-images img:hover {
+.carousel-track img:hover {
   filter: grayscale(0%);
   transform: scale(1.02);
 }
 
-.cs-num {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: 40px;
-  font-weight: 200;
-  color: var(--border);
-  margin-bottom: 20px;
-  line-height: 1;
+@keyframes carousel-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-
-.cs-text h3 {
-  font-family: var(--font-serif);
-  font-size: clamp(22px, 2.5vw, 32px);
-  font-weight: 300;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.cs-text p {
-  color: #999;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.9;
-  margin-bottom: 28px;
-}
-
-.cs-link {
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 300;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent);
-  border-bottom: 1px solid var(--accent);
-  padding-bottom: 3px;
-  transition: opacity 0.2s;
-}
-
-.cs-link:hover { opacity: 0.5; }
 
 @media (max-width: 700px) {
-  .cs-item { grid-template-columns: 1fr; gap: 40px; }
-  .cs-item--reverse .cs-images { order: 0; }
-  .cs-item--reverse .cs-text   { order: 0; }
-  .cs-inner { padding: 0 32px; }
+  .carousel-track img { height: 280px; }
+  .film-header { padding: 0 32px; }
 }
 
 /* ── LIGHTBOX ── */

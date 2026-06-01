@@ -354,13 +354,16 @@ buildGrid();
 observeItems();
 
 // Case study items scroll reveal
-const csObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
+const serviceObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      csObserver.unobserve(entry.target);
+      setTimeout(() => entry.target.classList.add('visible'), i * 120);
+      serviceObserver.unobserve(entry.target);
     }
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.cs-item').forEach(el => csObserver.observe(el));
+document.querySelectorAll('.service-item').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.1}s`;
+  serviceObserver.observe(el);
+});
