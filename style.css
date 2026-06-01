@@ -549,11 +549,13 @@ nav.scrolled {
   height: 340px;
   overflow: hidden;
   position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
 
 .film-cf-item {
   flex-shrink: 0;
-  transition: all 0.7s cubic-bezier(0.4,0,0.2,1);
+  transition: all 1.1s cubic-bezier(0.4,0,0.2,1);
   cursor: pointer;
 }
 
