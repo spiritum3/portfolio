@@ -538,72 +538,63 @@ nav.scrolled {
   padding: 0 64px;
 }
 
-.slideshow {
+.film-coverflow {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 340px;
+  overflow: hidden;
   position: relative;
 }
 
-.slideshow-inner {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16/9;
-  background: #0a0a0a;
+.film-cf-item {
+  flex-shrink: 0;
+  transition: all 0.7s cubic-bezier(0.4,0,0.2,1);
+  cursor: pointer;
 }
 
-.slide {
-  position: absolute;
-  inset: 0;
+.film-cf-item img {
+  display: block;
+  object-fit: cover;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-  pointer-events: none;
 }
 
-.slide.active {
+/* center = large & bright */
+.film-cf-item.cf-center {
+  width: 520px;
+  height: 300px;
   opacity: 1;
-  pointer-events: auto;
+  filter: none;
+  z-index: 3;
+  position: relative;
 }
 
-.slide-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: rgba(255,255,255,0.5);
-  font-size: 22px;
-  cursor: pointer;
-  padding: 16px 20px;
-  transition: color 0.2s;
-  z-index: 10;
-  font-family: var(--font-sans);
-  letter-spacing: 0.05em;
+/* adjacent = medium & dimmed */
+.film-cf-item.cf-side {
+  width: 240px;
+  height: 200px;
+  opacity: 0.45;
+  filter: grayscale(30%);
+  z-index: 2;
 }
 
-.slide-btn:hover { color: var(--accent); }
-
-.slide-prev { left: 64px; }
-.slide-next { right: 64px; }
-
-.slide-counter {
-  position: absolute;
-  bottom: -32px;
-  right: 64px;
-  font-family: var(--font-sans);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--muted);
+/* far = hidden */
+.film-cf-item.cf-far {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
 }
 
 @media (max-width: 700px) {
-  .slideshow { padding: 0 24px; }
-  .slide-prev { left: 24px; }
-  .slide-next { right: 24px; }
-  .slide-counter { right: 24px; }
+  .film-coverflow { padding: 0 16px; height: 220px; }
+  .film-cf-item.cf-center { width: 280px; height: 180px; }
+  .film-cf-item.cf-side { width: 120px; height: 100px; }
   .film-header { padding: 0 32px; }
 }
 

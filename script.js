@@ -368,20 +368,27 @@ document.querySelectorAll('.service-item').forEach((el, i) => {
   serviceObserver.observe(el);
 });
 
-// ── FILM SLIDESHOW ──
-const slides = document.querySelectorAll('.slide');
-const currentEl = document.querySelector('.slide-current');
-let current = 0;
+// ── FILM COVERFLOW ──
+const cfItems = Array.from(document.querySelectorAll('.film-cf-item'));
+let cfIndex = 0;
 
-function goTo(n) {
-  slides[current].classList.remove('active');
-  current = (n + slides.length) % slides.length;
-  slides[current].classList.add('active');
-  if (currentEl) currentEl.textContent = current + 1;
+function cfUpdate() {
+  const total = cfItems.length;
+  cfItems.forEach((item, i) => {
+    item.classList.remove('cf-center', 'cf-side', 'cf-far');
+    const diff = ((i - cfIndex) % total + total) % total;
+    const mirror = total - diff;
+    const dist = Math.min(diff, mirror);
+    if (dist === 0) item.classList.add('cf-center');
+    else if (dist === 1) item.classList.add('cf-side');
+    else item.classList.add('cf-far');
+  });
 }
 
-document.querySelector('.slide-prev')?.addEventListener('click', () => goTo(current - 1));
-document.querySelector('.slide-next')?.addEventListener('click', () => goTo(current + 1));
-
-// auto-advance every 4s
-setInterval(() => goTo(current + 1), 4000);
+if (cfItems.length) {
+  cfUpdate();
+  setInterval(() => {
+    cfIndex = (cfIndex + 1) % cfItems.length;
+    cfUpdate();
+  }, 3000);
+}
